@@ -4,5 +4,9 @@ jobs:
     run-first-command:
         runs-on: ubuntu-latest
         steps:
-            - name: Run a one-line script
+            - name: first command
               run: echo "Hello, World!"
+            - name: multi-line script
+              run: |-
+                  node -v
+                  npm -v
