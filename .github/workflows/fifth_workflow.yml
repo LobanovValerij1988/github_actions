@@ -1,0 +1,10 @@
+name: Fifth Workflow
+on: [push, issues, pull_request]
+jobs:
+    test-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Event Vars
+              run: |
+                  echo $GITHUB_SHA
+                  echo $GITHUB_REF
