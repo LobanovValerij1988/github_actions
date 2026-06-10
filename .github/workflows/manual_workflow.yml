@@ -7,10 +7,26 @@ on:
                 type: string
                 required: true
                 default: "Default value for test input"
+            second_input:
+                description: "Select an option for the second input"
+                type: choice
+                required: true
+                options:
+                    - Option 1
+                    - Option 2
+                    - Option 3
+                default: Option 1
+            checkbox_input:
+                description: "This is a checkbox input for the manual workflow"
+                type: boolean
+                required: false
+                default: false
+
 jobs:
     manual-command:
         runs-on: ubuntu-latest
         steps:
             - name: manual command
               run: |
-                  echo "Manual workflow executed with input: ${{ inputs.test_input }}"
+                  echo "Manual workflow executed with input: ${{ inputs.test_input }} and selected option: ${{ inputs.second_input }}"
+                  echo "Checkbox input is: ${{ inputs.checkbox_input }}"
