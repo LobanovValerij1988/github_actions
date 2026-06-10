@@ -1,10 +1,11 @@
-name: Third Workflow
+name: Copy Repository Workflow
 on: push
 jobs:
-    run-first-command:
+    copy-repository:
         runs-on: ubuntu-latest
         steps:
-            - name: Show current directory and list files
-              run: |-
-                  pwd
-                  ls -a
+            - name: list files in current directory
+              run: ls -a
+            - uses: actions/checkout@v4
+            - name: list files in current directory after copying repositorys
+              run: ls -a
