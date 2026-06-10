@@ -1,0 +1,11 @@
+name: Dispatch Workflow
+on:
+    repository_dispatch:
+        types: [test]
+
+jobs:
+    manual-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: dispatch command
+              run: echo  ${{ github.event.client_payload.title }}
