@@ -1,7 +1,7 @@
 name: Schedule Workflow
 on:
     schedule:
-        - cron: "*/2 * * * *" # works every 2 minutes
+        - cron: "*/5 * * * *" # works every 2 minutes
 jobs:
     cron-command:
         runs-on: ubuntu-latest
