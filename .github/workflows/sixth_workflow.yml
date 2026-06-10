@@ -1,0 +1,13 @@
+name: Main Branches Workflow
+on:
+    push:
+        branches:
+            - main
+        tags:
+            - "v1.*.*"
+jobs:
+    run-test-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: test command
+              run: echo "Testing!"
