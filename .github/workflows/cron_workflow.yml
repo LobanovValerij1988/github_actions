@@ -1,0 +1,10 @@
+name: Schedule Workflow
+on:
+    schedule:
+        - cron: "*/2 * * * *" # works every 2 minutes
+jobs:
+    cron-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: test command
+              run: echo "Cron work!"
