@@ -6,8 +6,13 @@ on:
         types:
             - completed
 jobs:
-    hello-command:
+    success-command:
         runs-on: ubuntu-latest
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
         steps:
-            - name: say hello
-              run: echo "Hello, World!"
+            - run: echo "Repository copied successfully!"
+    failure-command:
+        runs-on: ubuntu-latest
+        if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+        steps:
+            - run: echo "Failed to copy repository."
