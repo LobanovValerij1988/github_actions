@@ -3,8 +3,11 @@ on:
     push:
         branches:
             - main
-        tags:
-            - "v1.*.*"
+        # tags:
+        #     - "v1.*.*"
+        paths:
+            #only trigger workflow if files with .html extension are changed
+            - "**.html"
 jobs:
     run-test-command:
         runs-on: ubuntu-latest
