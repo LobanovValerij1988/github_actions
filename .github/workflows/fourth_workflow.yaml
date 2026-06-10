@@ -1,0 +1,13 @@
+name: Fourth Workflow After Copy Repository Workflow
+on:
+    workflow_run:
+        workflows: ["Copy Repository Workflow"]
+        # works after the workflow "Copy Repository Workflow" is completed
+        types:
+            - completed
+jobs:
+    hello-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: say hello
+              run: echo "Hello, World!"
