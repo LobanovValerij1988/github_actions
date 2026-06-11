@@ -1,0 +1,15 @@
+name: Matrix Workflow
+on: push
+jobs:
+    matrix-command:
+        strategy:
+            matrix:
+                node-version: [18, 20, 24]
+        runs-on: ubuntu-latest
+        steps:
+            - run: node -v
+            - uses: actions/setup-node@v6
+              # launch the workflow with different versions of node simultaneously
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - run: node -v
