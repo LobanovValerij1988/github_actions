@@ -2,10 +2,14 @@ name: Matrix Workflow
 on: push
 jobs:
     matrix-command:
+        # continue-on-error allows the workflow to continue even if one of the matrix combinations fails
+        continue-on-error: true
         strategy:
             matrix:
                 os: [ubuntu-latest, windows-latest]
                 node-version: [18, 20, 24]
+            # fail-fast allows the workflow to stop immediately if any of the matrix combinations fails
+            fail-fast: false
         runs-on: ${{ matrix.os }}
         steps:
             - run: node -v
