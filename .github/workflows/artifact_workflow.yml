@@ -1,0 +1,14 @@
+name: Artifact Workflow
+on: push
+jobs:
+    first-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Math expression
+              #create a file with the result of the expression
+              run: expr 2 + 2 > result.txt
+            - name: Upload result file
+              uses: actions/upload-artifact@v7
+              with:
+                  name: result-file
+                  path: result.txt
