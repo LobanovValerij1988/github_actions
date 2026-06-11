@@ -1,0 +1,20 @@
+name: Functions Workflow
+on: push
+jobs:
+    functions-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: first step
+              run: sleep 50
+            - name: Runs on Cancelled
+              if: ${{ cancelled() }}
+              run: echo "This job was cancelled"
+            - name: Runs on any case
+              if: ${{ always() }}
+              run: echo "This job runs regardless of the previous job's result"
+            - name: Runs on success
+              if: ${{ success() }}
+              run: echo "This job runs only if the previous job succeeded"
+            - name: Runs on failure
+              if: ${{ failure() }}
+              run: echo "This job runs only if the previous job failed"
