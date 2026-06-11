@@ -1,0 +1,15 @@
+name: Reusable Workflow
+on:
+    workflow_call:
+        inputs:
+            title:
+                description: "Title for the workflow"
+                required: true
+                type: string
+                default: "Default Title"
+jobs:
+    reusable-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Reusable command
+              run: echo '${{ inputs.title }}'

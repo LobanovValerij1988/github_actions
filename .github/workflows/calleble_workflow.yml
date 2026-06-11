@@ -1,0 +1,14 @@
+name: Main Workflow
+on:
+    workflow_dispatch:
+        inputs:
+            title:
+                description: "Title for the workflow"
+                required: true
+                type: string
+                default: "Custom Title"
+jobs:
+    call-workflow:
+        uses: ./.github/workflows/reusable_workflow.yml
+        with:
+            title: ${{inputs.title}}
