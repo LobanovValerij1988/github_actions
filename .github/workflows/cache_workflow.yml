@@ -1,0 +1,20 @@
+name: Cache Workflow
+on: workflow_dispatch
+jobs:
+    cache-command:
+        runs-on: ubuntu-latest
+        steps:
+            # copy repository to the runner
+            - uses: actions/checkout@v6
+            - name: Cache node modules
+              id: cache-step
+              uses: actions/cache@v5
+              # specify the path to cache it's for linux runner
+              with:
+                  path: ~/.npm
+                  key: "cache-file"
+            - name: Display cache content
+              # display cache content
+              run: echo '${{steps.cache-step.outputs}}'
+            - name: Install dependencies
+              run: npm install
