@@ -1,4 +1,4 @@
-name: Main Workflow
+name: Callable Workflow
 on:
     workflow_dispatch:
         inputs:
