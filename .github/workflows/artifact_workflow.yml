@@ -22,5 +22,4 @@ jobs:
                   name: result-file
             - name: Show result
               run: |
-                  value = 'cat result.txt'
-                  echo "The result of the expression is: $value"
+                  echo "The result of the expression is: $(cat result.txt)"
