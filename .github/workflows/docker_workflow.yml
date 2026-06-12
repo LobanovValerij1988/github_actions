@@ -3,6 +3,10 @@ on: push
 jobs:
     test-docker-container:
         runs-on: ubuntu-latest
+        services:
+            CustomMysql:
+                image: mysql
+
         container:
             image: node:26-alpine3.23
             env:
@@ -14,6 +18,8 @@ jobs:
               run: |
                   node -v
                   cat /etc/os-release
+            - name: Display sql version
+              run: echo '${{ toJson(job.services)}}'
             - name: Print new Node version
               uses: docker://node:18-buster-slim
               with:
