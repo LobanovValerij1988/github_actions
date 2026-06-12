@@ -1,0 +1,25 @@
+name: "Install and cache Node Modules"
+description: "Some description"
+runs:
+  using: "composite"
+  steps:
+    - name: Cache node modules
+      id: cache-step
+      uses:
+        actions/cache@v5
+        # specify the path to cache it's for linux runner
+      with:
+        path: ~/.npm
+        key:
+          ${{runner.os}}-cache-file-${{ hashFiles('**/package-lock.json') }}
+          # specify restore keys to restore cache if there is no exact match
+        restore-keys: |
+          ${{runner.os}}-cache-file-
+          ${{runner.os}}-
+    - name: Display cache content
+      shell: bash
+      # display cache content
+      run: echo '${{ toJson(steps.cache-step.outputs)}}'
+    - name: Install dependencies
+      shell: bash
+      run: npm install

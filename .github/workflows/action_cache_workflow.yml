@@ -1,0 +1,10 @@
+name: Action Custom Workflow
+on: workflow_dispatch
+jobs:
+    cache-command:
+        runs-on: ubuntu-latest
+        steps:
+            # copy repository to the runner
+            - uses: actions/checkout@v6
+            - name: use custom action
+              uses: ./.github/actions/cache-node-modules
