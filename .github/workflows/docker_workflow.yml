@@ -11,4 +11,6 @@ jobs:
                 - 80
         steps:
             - name: Display node version
-              run: node -v
+              run: |
+                  node -v
+                  cat /etc/os-release
