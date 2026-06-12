@@ -1,9 +1,17 @@
 name: "Install and cache Node Modules"
 description: "Some description"
+inputs:
+  caching:
+    required: false
+    description: "enable or disable caching"
+    default: "true"
 runs:
   using: "composite"
   steps:
+    #add logic if cache is trie it should work
+
     - name: Cache node modules
+      if: ${{ inputs.caching =='true'}}
       id: cache-step
       uses:
         actions/cache@v5
