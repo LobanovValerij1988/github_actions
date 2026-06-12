@@ -28,7 +28,7 @@ runs:
         restore-keys: |
           ${{runner.os}}-cache-file-
           ${{runner.os}}-
-        run: echo 'work'
+        run: echo 'caching.................'
     - name: Display cache content
       shell: bash
       # display cache content
