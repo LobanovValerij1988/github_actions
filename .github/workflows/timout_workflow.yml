@@ -8,3 +8,5 @@ jobs:
         steps:
             - name: Some Step
               run: sleep 200
+              # step timeout
+              # timeout-minutes: 1
